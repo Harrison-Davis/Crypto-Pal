@@ -14,12 +14,10 @@ import { numberWithCommas } from './Banner/Carousel'
 const CoinsTable = () => {
 
     const navigate = useNavigate();
-    const [ coins, setCoins ] = useState([])
-    const [ loading, setLoading ] = useState(false)
     const [ search, setSearch ] = useState('');
     const [ page, setPage ] = useState(1);
 
-    const { currency, symbol } =CryptoState()
+    const { currency, symbol,loading, setLoading,coins, setCoins, fetchCoins } =CryptoState()
 
     const darkTheme = createTheme({
         palette: {
@@ -30,12 +28,7 @@ const CoinsTable = () => {
         },
     });
 
-    const fetchCoins = async() => {
-        setLoading(true)
-        const { data } = await axios.get(CoinList(currency))  //using { data } is destructuring data object as we get it. Another way of doing this is to remove { } and below access the data by saying data.data.
-        setCoins(data)
-        setLoading(false)
-    };
+
     
     console.log(coins)
 
