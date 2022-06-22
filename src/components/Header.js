@@ -31,8 +31,9 @@ const Header = () => {
             },
             type: "dark",
         
-        },
+        }, 
     })
+
 
     return (
 
